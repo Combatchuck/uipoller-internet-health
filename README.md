@@ -60,7 +60,7 @@ Docker Compose stack for monitoring UniFi networks with UnPoller, Prometheus, an
 
 ## Resources
 
-- **📖 Detailed Guide**: [UniFi Observability with UnPoller, Prometheus, and Grafana](https://technotim.live/posts/unpoller-unifi-metrics/)
+- **📖 Detailed Guide**: [UniFi Observability with UnPoller, Prometheus, and Grafana](https://technotim.com/posts/unpoller-unifi-metrics/)
 - **🎥 Video Tutorial**: [UniFi Observability Done Right (Unpoller + Grafana Walkthrough)](https://www.youtube.com/watch?v=cVCPKTHEnI8)
 
 ## Troubleshooting
