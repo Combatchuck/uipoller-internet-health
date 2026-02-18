@@ -3,9 +3,11 @@ services:
     image: prom/prometheus:latest
     restart: unless-stopped
     container_name: prometheus
-    user: "${UID:-1000}:${GID:-1000}"
-    env_file:
-      - ./prometheus/.env
+    user: "1000:1000"
+    environment:
+      TZ: "America/Chicago"
+      UID: "1000"
+      GID: "1000"
     labels:
       - "net.unraid.docker.webui=http://[IP]:[PORT:9090]"
     ports:
@@ -17,9 +19,15 @@ services:
     image: grafana/grafana:latest
     restart: unless-stopped
     container_name: grafana
-    user: "${UID:-1000}:${GID:-1000}"
-    env_file:
-      - ./grafana/.env
+    user: "1000:1000"
+    environment:
+      GF_SECURITY_ADMIN_USER: "admin"
+      GF_SECURITY_ADMIN_PASSWORD: "admin123"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_PLUGINS_PREINSTALL: "grafana-clock-panel,natel-discrete-panel,grafana-piechart-panel"
+      TZ: "America/Chicago"
+      UID: "1000"
+      GID: "1000"
     labels:
       - "net.unraid.docker.webui=http://[IP]:[PORT:3001]"
     ports:
@@ -35,8 +43,24 @@ services:
     image: ghcr.io/unpoller/unpoller:latest
     restart: unless-stopped
     container_name: unpoller
-    env_file:
-      - ./unpoller/.env
+    environment:
+      UP_INFLUXDB_DISABLE: "true"
+      UP_POLLER_DEBUG: "false"
+      UP_UNIFI_DYNAMIC: "false"
+      UP_PROMETHEUS_HTTP_LISTEN: "0.0.0.0:9130"
+      UP_PROMETHEUS_NAMESPACE: "unpoller"
+      UP_UNIFI_CONTROLLER_0_VERIFY_SSL: "false"
+      UP_UNIFI_CONTROLLER_0_SAVE_ALARMS: "true"
+      UP_UNIFI_CONTROLLER_0_SAVE_ANOMALIES: "true"
+      UP_UNIFI_CONTROLLER_0_SAVE_EVENTS: "true"
+      UP_UNIFI_CONTROLLER_0_SAVE_IDS: "true"
+      UP_UNIFI_CONTROLLER_0_SAVE_SITES: "true"
+      UP_UNIFI_CONTROLLER_0_SAVE_DPI: "false"
+      UP_UNIFI_CONTROLLER_0_URL: "https://10.0.1.1"
+      UP_UNIFI_CONTROLLER_0_USER: "unpoller"
+      UP_UNIFI_CONTROLLER_0_PASS: " <REDACTED_PASSWORD>"
+      UP_UNIFI_CONTROLLER_0_SITE: "default"
+      TZ: "America/New_York"
     labels:
       - "net.unraid.docker.webui=http://[IP]:[PORT:9130]"
     ports:
