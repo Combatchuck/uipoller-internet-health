@@ -6,11 +6,13 @@ services:
     user: "${UID:-1000}:${GID:-1000}"
     env_file:
       - ./prometheus/.env
+    labels:
+      - "net.unraid.docker.webui=http://[IP]:[PORT:9090]"
     ports:
       - '9090:9090'
     volumes:
-      - ./prometheus/config:/etc/prometheus
-      - ./prometheus/data:/prometheus
+      - /mnt/user/Docker_Mounts/unpoller-unifi/prometheus/config:/etc/prometheus
+      - /mnt/user/Docker_Mounts/unpoller-unifi/prometheus/data:/prometheus
   grafana:
     image: grafana/grafana:latest
     restart: unless-stopped
@@ -18,12 +20,14 @@ services:
     user: "${UID:-1000}:${GID:-1000}"
     env_file:
       - ./grafana/.env
+    labels:
+      - "net.unraid.docker.webui=http://[IP]:[PORT:3001]"
     ports:
-      - '3000:3000'
+      - '3001:3000'
     volumes:
-      - ./grafana/data:/var/lib/grafana
-      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
-      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - /mnt/user/Docker_Mounts/unpoller-unifi/grafana/data:/var/lib/grafana
+      - /mnt/user/Docker_Mounts/unpoller-unifi/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - /mnt/user/Docker_Mounts/unpoller-unifi/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
     depends_on:
       - prometheus
 
@@ -33,17 +37,8 @@ services:
     container_name: unpoller
     env_file:
       - ./unpoller/.env
+    labels:
+      - "net.unraid.docker.webui=http://[IP]:[PORT:9130]"
     ports:
       - '9130:9130'
 
-# optional log viewer for docker containers
-  dozzle:
-    image: amir20/dozzle:latest
-    restart: unless-stopped
-    container_name: dozzle
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    env_file:
-      - ./dozzle/.env
-    ports:
-      - '8080:8080'
