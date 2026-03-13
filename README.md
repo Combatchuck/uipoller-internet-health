@@ -109,7 +109,7 @@ UniFi's Site Manager API exposes detailed ISP metrics which can supplement your 
 - `UNIFI_API_KEY` – API key used to authenticate to the controller/cloud API.
 - `EXTRA_ENDPOINTS` – comma-separated list of URLs to probe (latency metrics are emitted per endpoint).
 
-Example (in `compose.yaml`):
+Example (in `docker-compose.yml` or in a local ignored copy like `unraid-compose.yaml`):
 
 ```yaml
       UNIFI_API_KEY: "<YOUR_API_KEY>"  # set this in a local env file (or in an ignored compose copy)
