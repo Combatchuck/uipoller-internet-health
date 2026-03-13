@@ -32,7 +32,7 @@ Docker Compose stack for monitoring UniFi networks with UnPoller, Prometheus, an
    GF_SECURITY_ADMIN_PASSWORD=admin123
    ```
 
-   Optionally update timezone in `dozzle/.env`, `grafana/.env`, `prometheus/.env`, `unpoller/.env`:
+   Optionally update timezone in `grafana/.env`, `prometheus/.env`, and `unpoller/.env`:
 
    ```env
    TZ=Your/Timezone
@@ -41,7 +41,7 @@ Docker Compose stack for monitoring UniFi networks with UnPoller, Prometheus, an
 3. **Start the stack**
 
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 ## Access
@@ -50,7 +50,6 @@ Docker Compose stack for monitoring UniFi networks with UnPoller, Prometheus, an
 | ------- | --- |
 | Grafana | <http://localhost:3000> |
 | Prometheus | <http://localhost:9090> |
-| Dozzle (logs) | <http://localhost:8080> |
 
 **Grafana default login**: admin/admin123 (change in `grafana/.env`)
 
@@ -59,7 +58,6 @@ Docker Compose stack for monitoring UniFi networks with UnPoller, Prometheus, an
 - Pre-configured environment files for all services
 - Grafana dashboards for UniFi devices (Access Points, Switches, Gateway, Clients, DPI, Sites, PDU)
 - **Prometheus data source auto-provisioned** (named `DS_PROMETHEUS` so dashboards using the `${DS_PROMETHEUS}` variable work correctly)
-- Log viewer with Dozzle
 
 > ⚡ **Added metrics for internet health** – you can now deploy a Blackbox exporter to probe external endpoints (ICMP, HTTP, DNS, etc.) and optionally a speedtest exporter for bandwidth/latency measurements.  See the [Configuration](#configuration) section for details.
 
