@@ -121,12 +121,14 @@ services:
       # optional; the script will skip the health call if it can't authenticate.
       # UNIFI_USER: "uipoller"
       # UNIFI_PASS: " <REDACTED_PASSWORD>"
+      # optionally probe extra endpoints (latency metrics per URL)
+      # EXTRA_ENDPOINTS: "https://example.com,https://api.example.net/health"
       # override to use the cloud API rather than the local controller
-      UNIFI_API_URL: "https://api.ui.com/ea/isp-metrics/5m?duration=24h"
+      # UNIFI_API_URL: "https://api.ui.com/ea/isp-metrics/5m?duration=24h"
       # direct controller URL is still required by the code but not used when
       # UNIFI_API_URL is set; keep it for backwards compatibility.
       UNIFI_CONTROLLER: "https://10.0.1.1"
-      POLL_INTERVAL: "60"   # seconds between polls
+      POLL_INTERVAL: "60"   # seconds between polls (set lower for more frequent updates)
       VERIFY_SSL: "false"   # set to true if controller uses valid TLS cert
     ports:
       - '9100:9100'
