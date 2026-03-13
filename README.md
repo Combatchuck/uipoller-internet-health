@@ -7,9 +7,12 @@ Docker Compose stack for monitoring UniFi networks with UnPoller, Prometheus, an
 1. **Clone and configure**
 
    ```bash
-   git clone git@github.com:timothystewart6/unpoller-unifi.git    
-   cd unpoller-UniFi
+   git clone git@github.com:timothystewart6/unpoller-unifi.git
+   cd unpoller-unifi
    ```
+
+   > **Important:** the compose files are written to mount host paths under `.../unpoller-unifi` (e.g., `/mnt/user/Docker_Mounts/unpoller-unifi`).
+   > If you rename or relocate the folder, update the volume paths in `compose.yaml` (or the compose file you use) accordingly.
 
 2. **Edit UniFi credentials**
 
@@ -99,17 +102,32 @@ UI after upgrading.
 
 ### ISP‑specific metrics (UniFi Site Manager)
 
-UniFi's Site Manager API exposes detailed ISP metrics which can supplement your internet health picture:
+UniFi's Site Manager API exposes detailed ISP metrics which can supplement your internet health picture.
 
-- **API key:** use your controller key (example shown below)
+**Environment variables used by the custom exporter**
+
+- `UNIFI_API_KEY` – API key used to authenticate to the controller/cloud API.
+- `EXTRA_ENDPOINTS` – comma-separated list of URLs to probe (latency metrics are emitted per endpoint).
+
+Example (in `compose.yaml`):
+
+```yaml
+      UNIFI_API_KEY: " <REDACTED_UNIFI_API_KEY>"
+      EXTRA_ENDPOINTS: "https://rdgateway.wvd.microsoft.com,https://rdbroker.wvd.microsoft.com,https://rdweb.wvd.microsoft.com"
+```
+
+UniFi's Site Manager API provides metrics such as:
+
 - **Endpoints:**
   - `GET /site-manager/v1.0.0/getispmetrics`
-  - `POST /site-manager/v1.0.0/queryispmetrics`>
+  - `POST /site-manager/v1.0.0/queryispmetrics`
+
 > If you configure **both** `UNIFI_CONTROLLER` and `UNIFI_API_URL` the exporter
 > will now prefer the local controller path first and only fall back to the
 > cloud API if the controller request fails.  This ensures the real‑time rates
 > you obtain with the `/stat/device` curl are reflected in Prometheus even
 > when you keep a cloud URL set for other reasons.
+
 You will need a custom Prometheus exporter or script that authenticates to the controller with the key, polls these endpoints, and converts the JSON response into Prometheus metrics such as:
 
 ```text
