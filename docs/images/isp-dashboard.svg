@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect x="0" y="0" width="1200" height="800" fill="#181818"/>
+  <rect x="40" y="40" width="1120" height="160" fill="#1f1f1f" stroke="#444" stroke-width="2"/>
+  <text x="600" y="80" fill="#ffffff" font-size="24" font-family="Arial" text-anchor="middle">ISP Metrics Dashboard</text>
+  <g>
+    <rect x="80" y="120" width="520" height="220" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="340" y="240" fill="#888" font-size="18" font-family="Arial" text-anchor="middle">ISP Download (Mbps)</text>
+  </g>
+  <g>
+    <rect x="600" y="120" width="520" height="220" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="860" y="240" fill="#888" font-size="18" font-family="Arial" text-anchor="middle">ISP Upload (Mbps)</text>
+  </g>
+  <g>
+    <rect x="80" y="360" width="520" height="220" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="340" y="480" fill="#888" font-size="18" font-family="Arial" text-anchor="middle">ISP Latency (ms)</text>
+  </g>
+  <g>
+    <rect x="600" y="360" width="520" height="220" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="860" y="480" fill="#888" font-size="18" font-family="Arial" text-anchor="middle">ISP Packet Loss (%)</text>
+  </g>
+  <g>
+    <rect x="80" y="600" width="520" height="160" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="340" y="680" fill="#888" font-size="18" font-family="Arial" text-anchor="middle">Controller WAN RX/TX</text>
+  </g>
+  <g>
+    <rect x="600" y="600" width="520" height="160" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="860" y="680" fill="#888" font-size="18" font-family="Arial" text-anchor="middle">Controller WAN Latency/Availability</text>
+  </g>
+</svg>

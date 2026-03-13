@@ -102,7 +102,13 @@ UI after upgrading.
 1. **Enable service** – edit `docker-compose.yml` and make sure the `blackbox` service section is present.  It mounts `prometheus/config/blackbox.yml` which defines probe modules (icmp/http/dns).
 2. **Customize probes** – update `prometheus/config/prometheus.yml` under the `blackbox` job.  Add or remove targets such as `8.8.8.8`, `1.1.1.1`, your ISP gateway, or a web host you want to monitor.  Choose modules (`icmp` for ping, `http_2xx` for web endpoints) accordingly.
 3. **Reload Prometheus** – after editing `prometheus.yml` restart the `prometheus` container (`docker compose restart prometheus`) or hit the `/-/reload` endpoint.
-4. **View metrics** – browse to <http://localhost:9090/graph> and query `probe_duration_seconds` or `probe_success`.  Grafana dashboards can be extended with panels to visualize these metrics (see [Grafana comunitiy dashboards](https://grafana.com/grafana/dashboards?search=blackbox))
+4. **View metrics** – browse to <http://localhost:9090/graph> and query `probe_duration_seconds` or `probe_success`.  Grafana dashboards can be extended with panels to visualize these metrics (see [Grafana comunitiy dashboards](https://grafana.com/grafana/dashboards?search=blackbox)).
+
+#### Example dashboards
+
+![Blackbox exporter dashboard](docs/images/blackbox-dashboard.svg)
+
+![ISP exporter dashboard](docs/images/isp-dashboard.svg)
 
 ### Speed test / throughput metrics (optional)
 
