@@ -106,9 +106,9 @@ UI after upgrading.
 
 #### Example dashboards
 
-![Blackbox exporter dashboard](docs/images/blackbox-dashboard.svg)
+![Blackbox exporter dashboard](docs/images/blackbox-dashboard.png)
 
-![ISP exporter dashboard](docs/images/isp-dashboard.svg)
+![ISP exporter dashboard](docs/images/isp-dashboard.png)
 
 ### Speed test / throughput metrics (optional)
 
