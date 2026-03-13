@@ -2,14 +2,25 @@
 
 Docker Compose stack for monitoring UniFi networks with UnPoller, Prometheus, and Grafana.
 
+> **Fork note:** This project is based on [timothystewart6/unpoller-unifi](https://github.com/timothystewart6/unpoller-unifi), but includes additional exporters (ISP exporter + Blackbox exporter) and a few configuration tweaks.
+
 ## Quick Start
 
 1. **Clone and configure**
 
    ```bash
+   git clone git@github.com:Combatchuck/uipoller.git
+   cd uipoller
+   ```
+
+   If you want to start from the original upstream project instead, you can clone:
+
+   ```bash
    git clone git@github.com:timothystewart6/unpoller-unifi.git
    cd unpoller-unifi
    ```
+
+   **Note:** the upstream repo does NOT include `isp_exporter/` or the `blackbox` exporter configuration that this fork provides.
 
    > **Important:** the compose files are written to mount host paths under `.../unpoller-unifi` (e.g., `/mnt/user/Docker_Mounts/unpoller-unifi`).
    > If you rename or relocate the folder, update the volume paths in `compose.yaml` (or the compose file you use) accordingly.
