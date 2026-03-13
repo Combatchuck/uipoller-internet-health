@@ -25,9 +25,9 @@ services:
       GF_SECURITY_ADMIN_PASSWORD: "admin123"
       GF_USERS_ALLOW_SIGN_UP: "false"
       GF_PLUGINS_PREINSTALL: "grafana-clock-panel,natel-discrete-panel,grafana-piechart-panel"
-      # Grafana is reverse proxied at the domain root (/), not a subpath.
-      GF_SERVER_ROOT_URL: "https://uipoller.internal.anepohl.com/"
-      GF_SERVER_SERVE_FROM_SUB_PATH: "false"
+      # if Grafana is accessed via a reverse proxy or subpath, you may need these:
+      GF_SERVER_ROOT_URL: "http://localhost:3000"  # adjust to your public URL when copying
+      GF_SERVER_SERVE_FROM_SUB_PATH: "true"
       TZ: "America/New_York"
       UID: "1000"
       GID: "1000"
@@ -116,23 +116,17 @@ services:
       #   QM_YqjVkMZQ95koWmTxdMykyT1FZkgrk
       # UNIFI_API_KEY: "10iTJlBrDzSDoJOfUe6Og0UMm6YrWFl7"
       UNIFI_API_KEY: " <REDACTED_UNIFI_API_KEY>"
-      # controller login is required for the local /stat/device and
-      # /stat/health endpoints used by the exporter.
-      UNIFI_USER: "uipoller"
-      UNIFI_PASS: " <REDACTED_PASSWORD>"
-      # probe extra endpoints for latency (comma-separated list)
-      EXTRA_ENDPOINTS: "https://rdgateway.wvd.microsoft.com,https://rdbroker.wvd.microsoft.com,https://rdweb.wvd.microsoft.com"
-      # leave the cloud override disabled so throughput comes from the local
-      # controller instead of the fallback 600000 kbps cloud sample.
-      # UNIFI_API_URL: "https://api.ui.com/ea/isp-metrics/5m?duration=24h"
-      # (example to fetch data with curl, substitute your key and timestamps)
-      # curl -L -g "https://api.ui.com/v1/isp-metrics/5m?beginTimestamp=2024-06-30T13%3A35%3A00Z&endTimestamp=2024-06-30T15%3A35%3A00Z&duration={duration}" \
-      #   -H "Accept: application/json" \
-      #   -H "X-API-Key: <X-API-Key>"
-      #
-      # direct controller URL used for local metrics and controller login.
+      # if you want the exporter to query the controller's health endpoint you
+      # can provide login credentials or reuse the API key.  the value is
+      # optional; the script will skip the health call if it can't authenticate.
+      # UNIFI_USER: "uipoller"
+      # UNIFI_PASS: " <REDACTED_PASSWORD>"
+      # override to use the cloud API rather than the local controller
+      UNIFI_API_URL: "https://api.ui.com/ea/isp-metrics/5m?duration=24h"
+      # direct controller URL is still required by the code but not used when
+      # UNIFI_API_URL is set; keep it for backwards compatibility.
       UNIFI_CONTROLLER: "https://10.0.1.1"
-      POLL_INTERVAL: "5"   # seconds between polls for more responsive throughput
+      POLL_INTERVAL: "60"   # seconds between polls
       VERIFY_SSL: "false"   # set to true if controller uses valid TLS cert
     ports:
       - '9100:9100'

@@ -1,0 +1,27 @@
+# Ignore runtime data created by containers
+
+# macOS
+.DS_Store
+
+# Environment overrides / secrets
+*.env
+
+# Docker compose overrides
+docker-compose.override.yml
+
+# Prometheus runtime data
+prometheus/data/
+
+# Grafana runtime data
+grafana/data/
+
+# Other runtime state
+prometheus/queries.active
+prometheus/data/lock
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Logs
+*.log

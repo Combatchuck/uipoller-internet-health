@@ -5,12 +5,59 @@ global:
 rule_files:
 
 scrape_configs:
-  - job_name: 'prometheus'
-    static_configs:
-      - targets: ['prometheus:9090']
+- job_name: 'prometheus'
+  static_configs:
+  - targets: [ 'prometheus:9090' ]
 
-  - job_name: 'unpoller'
-    static_configs:
-      - targets: ['unpoller:9130']
-    scrape_interval: 60s  # if you get 429 errors from UniFi, increase this value to 120s or higher.
-    scrape_timeout: 10s
+- job_name: 'unpoller'
+  static_configs:
+  - targets: [ 'unpoller:9130' ]
+  scrape_interval: 60s # if you get 429 errors from UniFi, increase this value to 120s or higher.
+  scrape_timeout: 10s
+
+- job_name: 'blackbox'
+  metrics_path: /probe
+  params:
+    module: [ icmp ] # ping-style checks (icmp)
+  static_configs:
+  - targets:
+    - 8.8.8.8 # Google DNS
+    - 1.1.1.1 # Cloudflare DNS
+    - 9.9.9.9 # Quad9 DNS
+    - 208.67.222.222 # OpenDNS
+    - 8.8.4.4 # secondary Google DNS
+  relabel_configs:
+  - source_labels: [ __address__ ]
+    target_label: __param_target
+  - source_labels: [ __param_target ]
+    target_label: instance
+  - target_label: __address__
+    replacement: blackbox:9115 # blackbox exporter container
+
+- job_name: 'blackbox_http'
+  metrics_path: /probe
+  params:
+    module: [ http_2xx ] # simple HTTP GET expecting 2xx
+  static_configs:
+  - targets:
+    - https://www.google.com
+    - https://cloudflare.com
+    - https://www.facebook.com
+    - https://www.youtube.com
+    - https://www.amazon.com
+    - https://www.instagram.com
+    - https://www.microsoft.com
+    - https://www.spotify.com
+
+  relabel_configs:
+  - source_labels: [ __address__ ]
+    target_label: __param_target
+  - source_labels: [ __param_target ]
+    target_label: instance
+  - target_label: __address__
+    replacement: blackbox:9115 # reuse same exporter
+
+- job_name: 'unifi_isp'
+  scrape_interval: 5s
+  static_configs:
+  - targets: [ 'isp_exporter:9100' ]
