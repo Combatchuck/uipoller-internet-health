@@ -50,6 +50,8 @@ Docker Compose stack for monitoring UniFi networks with UnPoller, Prometheus, an
 | ------- | --- |
 | Grafana | <http://localhost:3000> |
 | Prometheus | <http://localhost:9090> |
+| Blackbox exporter | <http://localhost:9115/metrics> |
+| ISP exporter | <http://localhost:9100/metrics> |
 
 **Grafana default login**: admin/admin123 (change in `grafana/.env`)
 
@@ -86,10 +88,10 @@ UI after upgrading.
 
 ### Internet health (Blackbox exporter)
 
-1. **Enable service** – edit `compose.yaml` and make sure the `blackbox` service section is present.  It mounts `prometheus/config/blackbox.yml` which defines probe modules (icmp/http/dns).
+1. **Enable service** – edit `docker-compose.yml` and make sure the `blackbox` service section is present.  It mounts `prometheus/config/blackbox.yml` which defines probe modules (icmp/http/dns).
 2. **Customize probes** – update `prometheus/config/prometheus.yml` under the `blackbox` job.  Add or remove targets such as `8.8.8.8`, `1.1.1.1`, your ISP gateway, or a web host you want to monitor.  Choose modules (`icmp` for ping, `http_2xx` for web endpoints) accordingly.
-3. **Reload Prometheus** – after editing `prometheus.yml` restart the `prometheus` container (`docker-compose restart prometheus`) or hit the `/-/reload` endpoint.
-4. **View metrics** – browse to <http://localhost:9090/graph> and query `probe_duration_seconds` or `probe_success`.  Grafana dashboards can be extended with panels to visualize these metrics (see [Grafana comunitiy dashboards](https://grafana.com/grafana/dashboards?search=blackbox)).
+3. **Reload Prometheus** – after editing `prometheus.yml` restart the `prometheus` container (`docker compose restart prometheus`) or hit the `/-/reload` endpoint.
+4. **View metrics** – browse to <http://localhost:9090/graph> and query `probe_duration_seconds` or `probe_success`.  Grafana dashboards can be extended with panels to visualize these metrics (see [Grafana comunitiy dashboards](https://grafana.com/grafana/dashboards?search=blackbox))
 
 ### Speed test / throughput metrics (optional)
 
