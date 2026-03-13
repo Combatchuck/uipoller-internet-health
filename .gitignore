@@ -9,6 +9,9 @@
 # Docker compose overrides
 docker-compose.override.yml
 
+# Unraid-specific compose file (contains local secrets/config)
+unraid-compose.yaml
+
 # Prometheus runtime data
 prometheus/data/
 

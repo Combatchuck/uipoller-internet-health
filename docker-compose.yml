@@ -59,7 +59,7 @@ services:
       UP_UNIFI_CONTROLLER_0_SAVE_IDS: "true"
       UP_UNIFI_CONTROLLER_0_SAVE_SITES: "true"
       UP_UNIFI_CONTROLLER_0_SAVE_DPI: "false"
-      UP_UNIFI_CONTROLLER_0_URL: "https://10.0.1.1"
+      UP_UNIFI_CONTROLLER_0_URL: "https://10.0.1.1"   # controller IP address or hostname (no trailing slash)
       UP_UNIFI_CONTROLLER_0_USER: "uipoller"          # controller login username
       UP_UNIFI_CONTROLLER_0_PASS: " <REDACTED_PASSWORD>"    # controller login password
       UP_UNIFI_CONTROLLER_0_SITE: "default"
@@ -114,8 +114,9 @@ services:
       # you do **not** need the username/password here – only the API key
       # shown below.  the key can be hard-coded if you prefer (less secure):
       #   QM_YqjVkMZQ95koWmTxdMykyT1FZkgrk
-      # UNIFI_API_KEY: "10iTJlBrDzSDoJOfUe6Og0UMm6YrWFl7"
-      UNIFI_API_KEY: " <REDACTED_UNIFI_API_KEY>"
+      # **DO NOT COMMIT YOUR OWN KEY**: replace the value below with your key
+      # in your local environment file or via an override (not stored in git).
+      UNIFI_API_KEY: "<REDACTED>"   # API key generated in controller's Site Manager > Admins > API Keys (read-only access is sufficient) for the site being monitored
       # if you want the exporter to query the controller's health endpoint you
       # can provide login credentials or reuse the API key.  the value is
       # optional; the script will skip the health call if it can't authenticate.
