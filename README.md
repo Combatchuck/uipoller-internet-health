@@ -112,7 +112,7 @@ UniFi's Site Manager API exposes detailed ISP metrics which can supplement your 
 Example (in `compose.yaml`):
 
 ```yaml
-      UNIFI_API_KEY: " <REDACTED_UNIFI_API_KEY>"
+      UNIFI_API_KEY: "<YOUR_API_KEY>"  # set this in a local env file (or in an ignored compose copy)
       EXTRA_ENDPOINTS: "https://rdgateway.wvd.microsoft.com,https://rdbroker.wvd.microsoft.com,https://rdweb.wvd.microsoft.com"
 ```
 
