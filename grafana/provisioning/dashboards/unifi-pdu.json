@@ -99,7 +99,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -185,7 +185,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -203,7 +203,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -286,7 +286,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -303,7 +303,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "description": "This panel displays lifetime totals and current data as of now.",
             "fieldConfig": {
@@ -498,7 +498,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -513,7 +513,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -528,7 +528,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -543,7 +543,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -633,7 +633,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -697,7 +697,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -715,7 +715,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "description": "The amount of electrical current flowing through a circuit.",
             "fieldConfig": {
@@ -804,7 +804,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -823,7 +823,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -873,7 +873,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "expr": "min(unpoller_device_outlet_outlet_current{site_name=\"Default (default)\",outlet_index=~\"$Port\"})",
@@ -888,7 +888,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -942,7 +942,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "expr": "max(unpoller_device_outlet_outlet_current{site_name=\"Default (default)\",outlet_index=~\"$Port\"})",
@@ -957,7 +957,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1011,7 +1011,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "expr": "avg(unpoller_device_outlet_outlet_current{site_name=\"Default (default)\",outlet_index=~\"$Port\"})",
@@ -1026,7 +1026,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1080,7 +1080,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "expr": "sum(unpoller_device_outlet_outlet_current{site_name=\"Default (default)\",outlet_index=~\"$Port\"})",
@@ -1095,7 +1095,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1147,7 +1147,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -1165,7 +1165,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1244,7 +1244,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "expr": "unpoller_device_outlet_outlet_power{site_name=\"Default (default)\",outlet_index=~\"$Port\"}",
@@ -1261,7 +1261,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1311,7 +1311,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "expr": "min(unpoller_device_outlet_outlet_power{site_name=\"Default (default)\",outlet_index=~\"$Port\"})",
@@ -1326,7 +1326,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1376,7 +1376,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "expr": "max(unpoller_device_outlet_outlet_power{site_name=\"Default (default)\",outlet_index=~\"$Port\"})",
@@ -1391,7 +1391,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1441,7 +1441,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "expr": "avg(unpoller_device_outlet_outlet_power{site_name=\"Default (default)\",outlet_index=~\"$Port\"})",
@@ -1456,7 +1456,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "DS_PROMETHEUS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1506,7 +1506,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "Prometheus"
+                        "uid": "DS_PROMETHEUS"
                     },
                     "editorMode": "code",
                     "expr": "sum(unpoller_device_outlet_outlet_power{site_name=\"Default (default)\",outlet_index=~\"$Port\"})",
@@ -1550,7 +1550,7 @@
                 },
                 "datasource": {
                     "type": "prometheus",
-                    "uid": "Prometheus"
+                    "uid": "DS_PROMETHEUS"
                 },
                 "definition": "label_values(unpoller_device_info,source)",
                 "hide": 2,
@@ -1573,7 +1573,7 @@
                 },
                 "datasource": {
                     "type": "prometheus",
-                    "uid": "Prometheus"
+                    "uid": "DS_PROMETHEUS"
                 },
                 "definition": "label_values(unpoller_device_info,site_name)",
                 "includeAll": true,
@@ -1622,7 +1622,7 @@
                 },
                 "datasource": {
                     "type": "prometheus",
-                    "uid": "Prometheus"
+                    "uid": "DS_PROMETHEUS"
                 },
                 "definition": "label_values(unpoller_device_info{model=~\"USP.*\"},name)",
                 "includeAll": true,
@@ -1647,7 +1647,7 @@
                 },
                 "datasource": {
                     "type": "prometheus",
-                    "uid": "Prometheus"
+                    "uid": "DS_PROMETHEUS"
                 },
                 "definition": "label_values(unpoller_device_outlet_outlet_power,outlet_index)",
                 "includeAll": true,
